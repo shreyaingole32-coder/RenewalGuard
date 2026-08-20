@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: renewalguard-api
+
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/renewalguard}
+    username: ${POSTGRES_USER:renewalguard}
+    password: ${POSTGRES_PASSWORD:change-me-locally}
+    hikari:
+      maximum-pool-size: 10
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+  mail:
+    host: ${SMTP_HOST:localhost}
+    port: ${SMTP_PORT:1025}
+    username: ${SMTP_USER:}
+    password: ${SMTP_PASSWORD:}
+
+server:
+  port: 8080
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-string-at-least-32-chars}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
+
+agents:
+  base-url: ${AGENTS_BASE_URL:http://localhost:8001}
+  service-secret: ${AGENTS_SERVICE_SECRET:change-me-shared-secret}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.renewalguard: ${LOG_LEVEL:INFO}
