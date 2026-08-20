@@ -1,1 +1,14 @@
 
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://postgres:5432/renewalguard}
+    username: ${POSTGRES_USER:renewalguard}
+    password: ${POSTGRES_PASSWORD:change-me-locally}
+
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+
+agents:
+  base-url: ${AGENTS_BASE_URL:http://agents:8001}
