@@ -1,1 +1,68 @@
+# ---------- General ----------
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.iml
+.vs/
 
+# ---------- Node / Next.js / pnpm ----------
+node_modules/
+.pnpm-store/
+.next/
+out/
+dist/
+build/
+coverage/
+.turbo/
+next-env.d.ts
+*.tsbuildinfo
+
+# ---------- Java / Spring Boot / Maven ----------
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+HELP.md
+apps/api/target/
+
+# ---------- Python / FastAPI ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+apps/agents/.python-version
+
+# ---------- Docker ----------
+*.pid
+
+# ---------- Terraform ----------
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# ---------- Kubernetes / secrets ----------
+infrastructure/kubernetes/**/secrets.yaml
+*.pem
+*.key
+
+# ---------- Uploads / local storage ----------
+infrastructure/docker/minio-data/
+infrastructure/docker/postgres-data/
